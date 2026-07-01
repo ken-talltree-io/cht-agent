@@ -226,6 +226,7 @@ describe('filterPR', () => {
   describe('touchesMultipleServices: single service does not trigger distill rule', () => {
     it('bug + linked issue touching only one service should not match multi-service distill', async () => {
       const { filterPR } = loadFilter();
+      const logPath = tmpLogPath();
       // Bug label + linked issue, but every file is under api/ — a single service.
       // The bug distill rule requires ≥2 services, so it must NOT fire; with the LLM
       // skipped the PR falls through to flag-for-human.
@@ -233,7 +234,7 @@ describe('filterPR', () => {
         labels: ['Type: Bug'],
         linkedIssues: [LINKED_ISSUE],
         fileList: ['api/a.ts', 'api/b.ts'],
-      }), { skipLlm: true });
+      }), { logPath, skipLlm: true });
       expect(result.decision).to.equal('flag-for-human');
     });
   });
