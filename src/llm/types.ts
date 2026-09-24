@@ -183,7 +183,9 @@ export const DEFAULT_MODELS: Record<APIProviderType, string> = {
  * hand-maintained table. See https://platform.claude.com/docs/en/about-claude/models/overview
  */
 export const MODEL_MAX_OUTPUT_TOKENS: Record<string, number> = {
+  'claude-fable-5-1': 128000,
   'claude-fable-5': 128000,
+  'claude-opus-5-5': 128000,
   'claude-opus-5': 128000,
   'claude-sonnet-5': 128000,
   'claude-opus-4-8': 128000,

@@ -18,7 +18,9 @@ describe('getMaxOutputTokens', () => {
 
   it('returns 128000 for every current 128K-output model', () => {
     for (const model of [
+      'claude-fable-5-1',
       'claude-fable-5',
+      'claude-opus-5-5',
       'claude-opus-5',
       'claude-sonnet-5',
       'claude-opus-4-8',
@@ -34,7 +36,9 @@ describe('getMaxOutputTokens', () => {
     // The fallback is 65536, below every current model's real ceiling, so a
     // missing row silently truncates output rather than erroring.
     for (const model of [
+      'claude-fable-5-1',
       'claude-fable-5',
+      'claude-opus-5-5',
       'claude-opus-5',
       'claude-sonnet-5',
       'claude-opus-4-8',
